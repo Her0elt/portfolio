@@ -12,7 +12,8 @@ const useStyles = makeStyles(() => ({
         padding: 60,
         animation: `$windTiny 6s linear infinite`,
         '@media only screen and (max-width: 1200px)':{
-            gridTemplateColumns: '1fr',
+          gridTemplateColumns: '1fr',
+          padding: '30px 0px 0px 0px',
         },
     }
   }));  

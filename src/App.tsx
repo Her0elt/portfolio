@@ -11,6 +11,9 @@ const useStyles = makeStyles(() => ({
  
   container: {
     padding: 60,
+    '@media only screen and (max-width: 900px)':{
+      padding: 20,
+  },
   },
   clouds:{
     position: 'fixed',
@@ -42,7 +45,10 @@ const useStyles = makeStyles(() => ({
   },
   button:{
     marginTop: 10,
-    marginLeft: 60
+    marginLeft: 60,
+    '@media only screen and (max-width: 900px)':{
+      marginLeft: 0,
+  },
   }
 }));  
 

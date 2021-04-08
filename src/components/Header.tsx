@@ -13,15 +13,25 @@ const useStyles = makeStyles(() => ({
     container:{
         marginTop: 120,
         marginLeft: 60,
+        '@media only screen and (max-width: 900px)':{
+          marginLeft: 0,
+      },
     },
     header:{
         fontSize: 90,
         color:'white',
+        '@media only screen and (max-width: 900px)':{
+          marginLeft: 0,
+          fontSize: 45,
+      },
         
       },
     subHeader:{
         fontSize: 40,
         color:'white',
+        '@media only screen and (max-width: 900px)':{
+          fontSize: 30,
+      },
       },
 }));
 

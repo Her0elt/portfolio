@@ -7,11 +7,19 @@ const useStyles = makeStyles(() => ({
   main :{
       marginTop: 60,
       marginLeft: 60,
+      '@media only screen and (max-width: 900px)':{
+        marginLeft: 0,
+    },
     },
     text:{
         padding: 28,
         fontSize: 25,
         whiteSpace: 'pre-line',
+        '@media only screen and (max-width: 900px)':{
+          marginLeft: 0,
+          padding: 10,
+          fontSize: 18,
+      },
   },
 }));
 
