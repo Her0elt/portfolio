@@ -5,10 +5,10 @@ import Typography  from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(() => ({
   main :{
-      marginTop: 60,
-      marginLeft: 60,
-      '@media only screen and (max-width: 900px)':{
-        marginLeft: 0,
+    marginLeft: 60,
+    '@media only screen and (max-width: 900px)':{
+      marginLeft: 0,
+      marginTop: 30,
     },
     },
     text:{
@@ -16,7 +16,6 @@ const useStyles = makeStyles(() => ({
         fontSize: 25,
         whiteSpace: 'pre-line',
         '@media only screen and (max-width: 900px)':{
-          marginLeft: 0,
           padding: 10,
           fontSize: 18,
       },
