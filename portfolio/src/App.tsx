@@ -8,7 +8,7 @@ import About from 'components/About';
 
 
 const useStyles = makeStyles(() => ({
- 
+
   container: {
     padding: 60,
     '@media only screen and (max-width: 900px)':{
@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     height: '100%',
     width: '100%',
     background: `url(/clouds1000.png) 0 200px, url(/clouds1000_blur3.png) 100px 250px`,
-	  animation: `$wind 60s linear infinite`,
+	animation: `$wind 60s linear infinite`,
     backgroundSize: 'cover',
     display:'inline-block',
 },
@@ -50,7 +50,7 @@ const useStyles = makeStyles(() => ({
       marginLeft: 0,
   },
   }
-}));  
+}));
 
 
 const App = () => {
@@ -61,7 +61,7 @@ const App = () => {
   useEffect(() =>{
     getYourPinned(8, process.env.REACT_APP_GITHUB_TOKEN)
     .then(repos =>{
-      setRepos(repos as Repo)
+      setRepos(repos as Repo[])
     })
     .catch(err =>{
       console.log(err);
@@ -76,7 +76,7 @@ const App = () => {
     <Header headerText='Hermann Elton' subHeaderText='Computer science student at NTNU Trondheim'/>
     <Button onClick={() => setShowAbout(!showAbout)}className={classes.button} variant="contained">{showAbout ? 'Repositories' : 'About me'}</Button>
     {showAbout ? <About/> : <RepositoryList repositories={repos}/>}
-    
+
     </div>
     </>
   );

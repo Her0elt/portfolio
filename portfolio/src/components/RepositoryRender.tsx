@@ -28,7 +28,7 @@ const RepositoryRender = ({ repository,image } : RepositoryRenderProps) => {
             <FlightTakeoffIcon className={classes.icon} color='inherit'/>
           </IconButton>
         </Paper>
-    
+
   );
 };
 
