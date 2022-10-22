@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export default async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/auth')) {
     const password = request.cookies.get('password');
-    const authPass = process.env.NEXT_PUBLIC_PASSWORD;
+    const authPass = process.env.PASSWORD;
 
     if (password && authPass && password === authPass) {
       return;

@@ -15,7 +15,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Found the name.
   // Sends a HTTP success code
 
-  if (process.env.NEXT_PUBLIC_PASSWORD == body.password) {
+  if (process.env.PASSWORD == body.password) {
     const hashedPassword = body.password;
     setCookie('password', hashedPassword, { req, res, maxAge: 60 * 60 });
     return res.status(200).json({ data: 'All good' });
