@@ -7,7 +7,7 @@ import { Education } from 'utils/types';
 import EducationCard from 'page-components/education/EducationCard';
 import EducationForm from 'page-components/education/EducationForm';
 
-import Modal from 'components/misc/Modal';
+import HoverButton from 'components/misc/HoverButton';
 
 const JobExperiencePage: NextPage = () => {
   const result = trpc.education.all.useQuery();
@@ -49,18 +49,15 @@ const JobExperiencePage: NextPage = () => {
             }}
           />
         ))}
-        <Modal onClose={() => setOpen(false)} open={open}>
-          <EducationForm education={education} handleSubmit={handleSubmit} />
-        </Modal>
+        <EducationForm education={education} handleSubmit={handleSubmit} onClose={() => setOpen(false)} open={open} />
       </div>
-      <button
-        className='fixed bottom-4 right-2 rounded-full border-b-4 border-blue-700 bg-blue-500 py-2 px-4 text-3xl font-bold text-white hover:border-blue-500 hover:bg-blue-400 xl:bottom-12 xl:right-4 xl:text-8xl'
+      <HoverButton
         onClick={() => {
           setOpen(true);
           setEducation(null);
         }}>
         +
-      </button>
+      </HoverButton>
     </>
   );
 };
