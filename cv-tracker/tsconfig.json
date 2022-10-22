@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -13,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl":"./src",
     "incremental": true,
     "noUncheckedIndexedAccess": true
   },

@@ -5,8 +5,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint --fix src",
-    "lint-check": "next lint --max-warnings=0",
+    "lint": "eslint --fix .",
+    "lint-check": "eslint --max-warnings=0",
     "start": "next start"
   },
   "dependencies": {
@@ -35,7 +35,10 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.6",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-prettier": "^4.0.0"
   },
   "ct3aMetadata": {
     "initVersion": "6.5.0"
