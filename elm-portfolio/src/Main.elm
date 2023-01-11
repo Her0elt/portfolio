@@ -54,6 +54,7 @@ initialModel =
     )
 
 
+
 type Msg
     = Toggle
     | GotRepos (RemoteData (Graphql.Http.Error User) User)
