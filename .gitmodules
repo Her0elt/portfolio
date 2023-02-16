@@ -1,0 +1,3 @@
+[submodule "info-api"]
+	path = info-api
+	url = git@github.com:Her0elt/info-api.git
