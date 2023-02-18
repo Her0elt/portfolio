@@ -68,6 +68,7 @@ export function CatchBoundary() {
   );
 }
 
+
 // How ChakraProvider should be used on ErrorBoundary
 export function ErrorBoundary({ error }: { error: Error }) {
   return (
