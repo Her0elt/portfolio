@@ -27,6 +27,7 @@ export const loader = async () => {
             company
             description
           }
+          groupByCategory
           technicalSkills {
             id
             category

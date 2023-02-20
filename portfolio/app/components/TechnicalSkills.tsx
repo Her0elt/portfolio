@@ -10,8 +10,8 @@ const TechnicalSkillRender = ({ skill }: TechnicalSkillsProps) => {
   return (
         <Box  bg="white" maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" shadow="md" m={4}>
           <Box p={6}>
-            <Text fontSize="lg" mb={2}>
-                {skill.category}: {skill.skill}
+            <Text fontSize="lg" textAlign="center" mb={2}>
+                {skill.skill}
             </Text>
           </Box>
         </Box>

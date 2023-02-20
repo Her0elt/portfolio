@@ -32,6 +32,7 @@ export type PageInfo = {
     educations: Array<Education>;
     jobExperiences: Array<JobExperience>;
     technicalSkills: Array<TechnicalSkills>;
+    groupByCategory: Map<string, Array<TechnicalSkills>>;
 }
 
 export type GraphqlResponse<T> = {

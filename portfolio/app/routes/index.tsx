@@ -46,11 +46,15 @@ const Portfolio = () => {
       <Heading color="white" as="h1" size="2xl" mb={8}>
         Techinical Skills
       </Heading>
-      <Grid mb={450} templateColumns={["repeat(2, 1fr)","repeat(4, 1fr)"]}>
-      {data.technicalSkills && data.technicalSkills.map(skill  => (
-                  <GridItem key={skill.id}>
-                  <TechnicalSkillRender skill={skill}/>
-                  </GridItem>
+      <Grid mb={450} gridAutoFlow={["row","column"]}>
+      {data.groupByCategory && Object.keys(data.groupByCategory).map((key, index)  => (
+        <GridItem key={index}>
+            <h2 style={{color: "white", textAlign: "center"}}  >{key}</h2>
+            {/** @ts-ignore */}
+            {data.groupByCategory[key].map(skill => (
+                  <TechnicalSkillRender key={skill.id} skill={skill}/>
+            ))}
+        </GridItem>
                   ))}
       </Grid>
         <Heading color="white" as="h1" size="2xl" mb={8}>

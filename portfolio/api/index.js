@@ -2169,6 +2169,7 @@ var loader = async () => {
             company
             description
           }
+          groupByCategory
           technicalSkills {
             id
             category
@@ -2276,11 +2277,7 @@ var import_react7 = require("@chakra-ui/react"), import_jsx_dev_runtime5 = requi
 }, this), Repository_default = RepositoryRender;
 
 // app/components/TechnicalSkills.tsx
-var import_react8 = require("@chakra-ui/react"), import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), TechnicalSkillRender = ({ skill }) => /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Box, { bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Box, { p: 6, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Text, { fontSize: "lg", mb: 2, children: [
-  skill.category,
-  ": ",
-  skill.skill
-] }, void 0, !0, {
+var import_react8 = require("@chakra-ui/react"), import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), TechnicalSkillRender = ({ skill }) => /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Box, { bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Box, { p: 6, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Text, { fontSize: "lg", textAlign: "center", mb: 2, children: skill.skill }, void 0, !1, {
   fileName: "app/components/TechnicalSkills.tsx",
   lineNumber: 13,
   columnNumber: 13
@@ -2355,14 +2352,21 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
         lineNumber: 46,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 450, templateColumns: ["repeat(2, 1fr)", "repeat(4, 1fr)"], children: data.technicalSkills && data.technicalSkills.map((skill) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(TechnicalSkills_default, { skill }, void 0, !1, {
-        fileName: "app/routes/index.tsx",
-        lineNumber: 52,
-        columnNumber: 19
-      }, this) }, skill.id, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 450, gridAutoFlow: ["row", "column"], children: data.groupByCategory && Object.keys(data.groupByCategory).map((key, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("h2", { style: { color: "white", textAlign: "center" }, children: key }, void 0, !1, {
+          fileName: "app/routes/index.tsx",
+          lineNumber: 52,
+          columnNumber: 13
+        }, this),
+        data.groupByCategory[key].map((skill) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(TechnicalSkills_default, { skill }, skill.id, !1, {
+          fileName: "app/routes/index.tsx",
+          lineNumber: 55,
+          columnNumber: 19
+        }, this))
+      ] }, index, !0, {
         fileName: "app/routes/index.tsx",
         lineNumber: 51,
-        columnNumber: 19
+        columnNumber: 9
       }, this)) }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 49,
@@ -2370,20 +2374,20 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Education" }, void 0, !1, {
         fileName: "app/routes/index.tsx",
-        lineNumber: 56,
+        lineNumber: 60,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 300, templateColumns: "repeat(1, 1fr)", children: data.educations && data.educations.sort((a, b) => +a.to - +b.to).map((edu) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(Education_default, { edu }, void 0, !1, {
         fileName: "app/routes/index.tsx",
-        lineNumber: 62,
+        lineNumber: 66,
         columnNumber: 17
       }, this) }, edu.id, !1, {
         fileName: "app/routes/index.tsx",
-        lineNumber: 61,
+        lineNumber: 65,
         columnNumber: 13
       }, this)) }, void 0, !1, {
         fileName: "app/routes/index.tsx",
-        lineNumber: 59,
+        lineNumber: 63,
         columnNumber: 7
       }, this)
     ] }, void 0, !0, {
@@ -2399,7 +2403,7 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
 }, routes_default = Portfolio;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "bc5dcfab", entry: { module: "/build/entry.client-NRG6L6GY.js", imports: ["/build/_shared/chunk-D5J4MVUZ.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-JNZWP5XD.js", imports: ["/build/_shared/chunk-YYAB3IJX.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/api/page-info": { id: "routes/api/page-info", parentId: "root", path: "api/page-info", index: void 0, caseSensitive: void 0, module: "/build/routes/api/page-info-N5P2WNHK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-RUMVJ534.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, url: "/build/manifest-BC5DCFAB.js" };
+var assets_manifest_default = { version: "cf4fee37", entry: { module: "/build/entry.client-NRG6L6GY.js", imports: ["/build/_shared/chunk-D5J4MVUZ.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-JNZWP5XD.js", imports: ["/build/_shared/chunk-YYAB3IJX.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/api/page-info": { id: "routes/api/page-info", parentId: "root", path: "api/page-info", index: void 0, caseSensitive: void 0, module: "/build/routes/api/page-info-N5P2WNHK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-QYVUOD3R.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, url: "/build/manifest-CF4FEE37.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { unstable_cssModules: !1, unstable_cssSideEffectImports: !1, unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, unstable_vanillaExtract: !1, v2_errorBoundary: !1, v2_meta: !1, v2_routeConvention: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
