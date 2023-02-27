@@ -114,7 +114,13 @@ __export(root_exports, {
   default: () => App,
   meta: () => meta
 });
-var import_react3 = require("@chakra-ui/react"), import_react4 = require("@remix-run/react"), import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), meta = () => ({
+var import_react3 = require("@chakra-ui/react"), import_react4 = require("@remix-run/react"), import_react5 = require("react");
+
+// app/utils/stats.ts
+var import_stats = require("@olros/stats"), TEAM = "portfolio", PROJECT = "portfolio-site", stats = (0, import_stats.Stats)({ team: TEAM, project: PROJECT });
+
+// app/root.tsx
+var import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), meta = () => ({
   charset: "utf-8",
   viewport: "width=device-width,initial-scale=1"
 });
@@ -126,64 +132,67 @@ function Document({
     /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("head", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.Meta, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 28,
+        lineNumber: 32,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("title", { children: title }, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 29,
+        lineNumber: 33,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.Links, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 30,
+        lineNumber: 34,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 27,
+      lineNumber: 31,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("body", { children: [
       children,
       /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.ScrollRestoration, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 34,
+        lineNumber: 38,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.Scripts, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 35,
+        lineNumber: 39,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.LiveReload, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 36,
+        lineNumber: 40,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 32,
+      lineNumber: 36,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/root.tsx",
-    lineNumber: 26,
+    lineNumber: 30,
     columnNumber: 5
   }, this);
 }
 function App() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(Document, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react3.ChakraProvider, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.Outlet, {}, void 0, !1, {
+  let location = (0, import_react4.useLocation)();
+  return (0, import_react5.useEffect)(() => {
+    stats.pageview();
+  }, [location.pathname, location.search]), /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(Document, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react3.ChakraProvider, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react4.Outlet, {}, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 48,
+    lineNumber: 57,
     columnNumber: 9
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 47,
+    lineNumber: 56,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 46,
+    lineNumber: 55,
     columnNumber: 5
   }, this);
 }
@@ -196,19 +205,19 @@ function CatchBoundary() {
     caught.statusText
   ] }, void 0, !0, {
     fileName: "app/root.tsx",
-    lineNumber: 62,
+    lineNumber: 71,
     columnNumber: 11
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 61,
+    lineNumber: 70,
     columnNumber: 9
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 60,
+    lineNumber: 69,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 59,
+    lineNumber: 68,
     columnNumber: 5
   }, this);
 }
@@ -218,19 +227,19 @@ function ErrorBoundary({ error }) {
     error.message
   ] }, void 0, !0, {
     fileName: "app/root.tsx",
-    lineNumber: 78,
+    lineNumber: 87,
     columnNumber: 11
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 77,
+    lineNumber: 86,
     columnNumber: 9
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 76,
+    lineNumber: 85,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/root.tsx",
-    lineNumber: 75,
+    lineNumber: 84,
     columnNumber: 5
   }, this);
 }
@@ -2186,16 +2195,16 @@ __export(routes_exports, {
   default: () => routes_default,
   loader: () => loader
 });
-var import_react9 = require("@chakra-ui/react"), import_react10 = require("@remix-run/react");
+var import_react10 = require("@chakra-ui/react"), import_react11 = require("@remix-run/react");
 
 // app/components/Education.tsx
-var import_react5 = require("@chakra-ui/react"), import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), EducationRender = ({ edu }) => /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react5.Box, { bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react5.Box, { p: 6, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react5.Text, { fontSize: "xl", fontWeight: "bold", mb: 2, children: edu.title }, void 0, !1, {
+var import_react6 = require("@chakra-ui/react"), import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), EducationRender = ({ edu }) => /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react6.Box, { bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react6.Box, { p: 6, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react6.Text, { fontSize: "xl", fontWeight: "bold", mb: 2, children: edu.title }, void 0, !1, {
     fileName: "app/components/Education.tsx",
     lineNumber: 13,
     columnNumber: 13
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react5.Text, { fontSize: "xl", mb: 2, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react6.Text, { fontSize: "xl", mb: 2, children: [
     edu.school,
     ": ",
     edu.from,
@@ -2217,8 +2226,8 @@ var import_react5 = require("@chakra-ui/react"), import_jsx_dev_runtime3 = requi
 }, this), Education_default = EducationRender;
 
 // app/components/JobExperience.tsx
-var import_react6 = require("@chakra-ui/react"), import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), JobExperienceRender = ({ exp }) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react6.Box, { height: 400, bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react6.Box, { p: 6, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react6.Text, { as: "h2", fontSize: "2xl", mb: 2, children: [
+var import_react7 = require("@chakra-ui/react"), import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), JobExperienceRender = ({ exp }) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react7.Box, { height: 400, bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react7.Box, { p: 6, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react7.Text, { as: "h2", fontSize: "2xl", mb: 2, children: [
     exp.title,
     ": ",
     exp.from,
@@ -2229,12 +2238,12 @@ var import_react6 = require("@chakra-ui/react"), import_jsx_dev_runtime4 = requi
     lineNumber: 14,
     columnNumber: 13
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react6.Text, { fontSize: "xl", mb: 2, children: exp.company }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react7.Text, { fontSize: "xl", mb: 2, children: exp.company }, void 0, !1, {
     fileName: "app/components/JobExperience.tsx",
     lineNumber: 17,
     columnNumber: 13
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react6.Text, { fontSize: "lg", mb: 2, children: exp.description }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react7.Text, { fontSize: "lg", mb: 2, children: exp.description }, void 0, !1, {
     fileName: "app/components/JobExperience.tsx",
     lineNumber: 20,
     columnNumber: 13
@@ -2250,18 +2259,18 @@ var import_react6 = require("@chakra-ui/react"), import_jsx_dev_runtime4 = requi
 }, this), JobExperience_default = JobExperienceRender;
 
 // app/components/Repository.tsx
-var import_react7 = require("@chakra-ui/react"), import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), RepositoryRender = ({ repo }) => /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react7.Box, { height: 300, bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react7.Box, { p: 6, children: [
-  /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react7.Heading, { as: "h2", size: "xl", mb: 2, children: repo.name }, void 0, !1, {
+var import_react8 = require("@chakra-ui/react"), import_jsx_dev_runtime5 = require("react/jsx-dev-runtime"), RepositoryRender = ({ repo }) => /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react8.Box, { height: 300, bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react8.Box, { p: 6, children: [
+  /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react8.Heading, { as: "h2", size: "xl", mb: 2, children: repo.name }, void 0, !1, {
     fileName: "app/components/Repository.tsx",
     lineNumber: 13,
     columnNumber: 13
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react7.Text, { fontSize: "lg", mb: 2, children: repo.description }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react8.Text, { fontSize: "lg", mb: 2, children: repo.description }, void 0, !1, {
     fileName: "app/components/Repository.tsx",
     lineNumber: 16,
     columnNumber: 13
   }, this),
-  /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react7.Link, { href: repo.url, color: "blue.500", children: "View Project" }, void 0, !1, {
+  /* @__PURE__ */ (0, import_jsx_dev_runtime5.jsxDEV)(import_react8.Link, { href: repo.url, color: "blue.500", children: "View Project" }, void 0, !1, {
     fileName: "app/components/Repository.tsx",
     lineNumber: 19,
     columnNumber: 13
@@ -2277,7 +2286,7 @@ var import_react7 = require("@chakra-ui/react"), import_jsx_dev_runtime5 = requi
 }, this), Repository_default = RepositoryRender;
 
 // app/components/TechnicalSkills.tsx
-var import_react8 = require("@chakra-ui/react"), import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), TechnicalSkillRender = ({ skill }) => /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Box, { bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Box, { p: 6, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react8.Text, { fontSize: "lg", textAlign: "center", mb: 2, children: skill.skill }, void 0, !1, {
+var import_react9 = require("@chakra-ui/react"), import_jsx_dev_runtime6 = require("react/jsx-dev-runtime"), TechnicalSkillRender = ({ skill }) => /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react9.Box, { bg: "white", maxW: "sm", borderWidth: "1px", borderRadius: "lg", overflow: "hidden", shadow: "md", m: 4, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react9.Box, { p: 6, children: /* @__PURE__ */ (0, import_jsx_dev_runtime6.jsxDEV)(import_react9.Text, { fontSize: "lg", textAlign: "center", mb: 2, children: skill.skill }, void 0, !1, {
   fileName: "app/components/TechnicalSkills.tsx",
   lineNumber: 13,
   columnNumber: 13
@@ -2293,10 +2302,10 @@ var import_react8 = require("@chakra-ui/react"), import_jsx_dev_runtime6 = requi
 
 // app/routes/index.tsx
 var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () => {
-  let { data } = (0, import_react10.useLoaderData)();
+  let { data } = (0, import_react11.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_jsx_dev_runtime7.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Flex, { height: "100%", direction: "column", align: "center", bgGradient: "linear(to-b, skyblue, black)", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Box, { mt: 16, mb: 16, children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Heading, { as: "h1", size: "2xl", color: "white", mb: 4, p: 8, children: "Hermann Owren Elton" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Flex, { height: "100%", direction: "column", align: "center", bgGradient: "linear(to-b, skyblue, black)", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Box, { mt: 16, mb: 16, children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Heading, { as: "h1", size: "2xl", color: "white", mb: 4, p: 8, children: "Hermann Owren Elton" }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 19,
         columnNumber: 9
@@ -2305,12 +2314,12 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
         lineNumber: 18,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Projects" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Projects" }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 23,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 300, templateColumns: ["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"], children: data.pinns && data.pinns.map((repo, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(Repository_default, { repo }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Grid, { mb: 300, templateColumns: ["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"], children: data.pinns && data.pinns.map((repo, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(Repository_default, { repo }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 29,
         columnNumber: 17
@@ -2323,12 +2332,12 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
         lineNumber: 26,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Job Experience" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Job Experience" }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 33,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 300, templateColumns: ["repeat(1, 1fr)", "repeat(2, 1fr)"], children: data.jobExperiences && data.jobExperiences.sort((a, b) => +a.to - +b.to).map((exp) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(JobExperience_default, { exp }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Grid, { mb: 300, templateColumns: ["repeat(1, 1fr)", "repeat(2, 1fr)"], children: data.jobExperiences && data.jobExperiences.sort((a, b) => +a.to - +b.to).map((exp) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(JobExperience_default, { exp }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 39,
         columnNumber: 19
@@ -2346,13 +2355,13 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
       lineNumber: 17,
       columnNumber: 5
     }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Flex, { height: "100%", direction: "column", align: "center", bg: "black", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Techinical Skills" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Flex, { height: "100%", direction: "column", align: "center", bg: "black", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Techinical Skills" }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 46,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 450, gridAutoFlow: ["row", "column"], children: data.groupByCategory && Object.keys(data.groupByCategory).map((key, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Grid, { mb: 450, gridAutoFlow: ["row", "column"], children: data.groupByCategory && Object.keys(data.groupByCategory).map((key, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.GridItem, { children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("h2", { style: { color: "white", textAlign: "center" }, children: key }, void 0, !1, {
           fileName: "app/routes/index.tsx",
           lineNumber: 52,
@@ -2372,12 +2381,12 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
         lineNumber: 49,
         columnNumber: 7
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Education" }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Heading, { color: "white", as: "h1", size: "2xl", mb: 8, children: "Education" }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 60,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.Grid, { mb: 300, templateColumns: "repeat(1, 1fr)", children: data.educations && data.educations.sort((a, b) => +a.to - +b.to).map((edu) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react9.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(Education_default, { edu }, void 0, !1, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.Grid, { mb: 300, templateColumns: "repeat(1, 1fr)", children: data.educations && data.educations.sort((a, b) => +a.to - +b.to).map((edu) => /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(import_react10.GridItem, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(Education_default, { edu }, void 0, !1, {
         fileName: "app/routes/index.tsx",
         lineNumber: 66,
         columnNumber: 17
@@ -2403,7 +2412,7 @@ var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), Portfolio = () =
 }, routes_default = Portfolio;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "cf4fee37", entry: { module: "/build/entry.client-NRG6L6GY.js", imports: ["/build/_shared/chunk-D5J4MVUZ.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-JNZWP5XD.js", imports: ["/build/_shared/chunk-YYAB3IJX.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/api/page-info": { id: "routes/api/page-info", parentId: "root", path: "api/page-info", index: void 0, caseSensitive: void 0, module: "/build/routes/api/page-info-N5P2WNHK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-QYVUOD3R.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, url: "/build/manifest-CF4FEE37.js" };
+var assets_manifest_default = { version: "52a6be44", entry: { module: "/build/entry.client-MTO4F6MK.js", imports: ["/build/_shared/chunk-NERLHCFR.js", "/build/_shared/chunk-4IYZMDEG.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-MLHRLDKN.js", imports: ["/build/_shared/chunk-PQ454Q4X.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/api/page-info": { id: "routes/api/page-info", parentId: "root", path: "api/page-info", index: void 0, caseSensitive: void 0, module: "/build/routes/api/page-info-N5P2WNHK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-B2J7PTUC.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, url: "/build/manifest-52A6BE44.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { unstable_cssModules: !1, unstable_cssSideEffectImports: !1, unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, unstable_vanillaExtract: !1, v2_errorBoundary: !1, v2_meta: !1, v2_routeConvention: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -2,6 +2,7 @@ import { ChakraProvider, Box, Heading } from "@chakra-ui/react";
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
+  useLocation,
   LiveReload,
   Meta,
   Outlet,
@@ -9,6 +10,9 @@ import {
   ScrollRestoration,
   useCatch,
 } from "@remix-run/react";
+import { useEffect } from "react";
+import { stats } from "./utils/stats";
+
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -41,6 +45,11 @@ function Document({
 
 export default function App() {
   // throw new Error("💣💥 Booooom");
+    const location = useLocation();
+
+    useEffect(() => {
+      stats.pageview();
+    }, [location.pathname, location.search]);
 
   return (
     <Document>
