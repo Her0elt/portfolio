@@ -18,6 +18,10 @@ const Landing: NextPage = () => {
         <Typography style='mt-0 mb-2 text-xl font-medium leading-tight xl:text-4xl'>Education</Typography>
         <Button onClick={() => router.push('auth/education')}>Go to page</Button>
       </Paper>
+      <Paper>
+        <Typography style='mt-0 mb-2 text-xl font-medium leading-tight xl:text-4xl'>Technical skills</Typography>
+        <Button onClick={() => router.push('auth/technical-skills')}>Go to page</Button>
+      </Paper>
     </div>
   );
 };

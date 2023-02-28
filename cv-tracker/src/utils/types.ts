@@ -20,3 +20,10 @@ export const EducationZod = z.object({
 });
 
 export type Education = z.infer<typeof EducationZod>;
+
+export const TechnicalSkillZod = z.object({
+  id: z.string().nullish(),
+  category: z.string(),
+  skill: z.string(),
+});
+export type TechnicalSkill = z.infer<typeof TechnicalSkillZod>;

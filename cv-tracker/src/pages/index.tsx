@@ -13,20 +13,15 @@ const Home: NextPage = () => {
     event.preventDefault();
 
     const password = event.currentTarget.elements['pass'].value;
-    try{
-    const res = await axios.post('/api', {password: password});
-    if (res.status == 200) {
-      router.push('auth');
-      return
+    try {
+      const res = await axios.post('/api', { password: password });
+      if (res.status == 200) {
+        router.push('auth');
+        return;
+      }
+    } catch (err) {
+      alert('wrong password');
     }
-
-    }catch(err){
-        alert("wrong password");
-
-    }
-
-
-
   };
   return (
     <div className='grid place-content-center p-8 xl:p-28'>
