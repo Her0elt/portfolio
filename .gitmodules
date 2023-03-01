@@ -1,3 +1,6 @@
 [submodule "info-api"]
 	path = info-api
 	url = git@github.com:Her0elt/info-api.git
+[submodule "web-testing"]
+	path = web-testing
+	url = git@github.com:Her0elt/web-testing.git
