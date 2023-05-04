@@ -1,7 +1,7 @@
 export type Repository = {
     name: string;
-    description: string;
-    url: string;
+    description?: string;
+    url?: string;
 };
 
 export type Education = {

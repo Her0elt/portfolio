@@ -4,7 +4,7 @@ import EducationRender from "~/components/Education";
 import JobExperienceRender from "~/components/JobExperience";
 import RepositoryRender from "~/components/Repository";
 import TechnicalSkillRender from "~/components/TechnicalSkills";
-import { loader } from "~/routes/api/page-info";
+import type { loader } from "~/routes/api/page-info";
 
 export { loader } from "~/routes/api/page-info";
 
