@@ -1,10 +1,11 @@
-import { Flex, Box, Heading, Text, Image, Link, Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Box, Heading, Link, Grid, GridItem, HStack } from "@chakra-ui/react";
 import { useLoaderData } from "@remix-run/react";
 import EducationRender from "~/components/Education";
 import JobExperienceRender from "~/components/JobExperience";
 import RepositoryRender from "~/components/Repository";
 import TechnicalSkillRender from "~/components/TechnicalSkills";
 import type { loader } from "~/routes/api/page-info";
+import { SiLinkedin, SiGithub } from "react-icons/si";
 
 export { loader } from "~/routes/api/page-info";
 
@@ -19,6 +20,14 @@ const Portfolio = () => {
         <Heading as="h1" size="2xl" color="white" mb={4} p={8}>
             Hermann Owren Elton
         </Heading>
+        <HStack gap={5} alignItems="center" justifyContent="center">
+            <Link href="https://www.linkedin.com/in/hermann-elton-2063151a2/" isExternal>
+                <SiLinkedin size={40}/>
+            </Link>
+            <Link href="https://github.com/her0elt" isExternal>
+                <SiGithub size={40}/>
+            </Link>
+        </HStack>
       </Box>
         <Heading color="white" as="h1" size="2xl" mb={8}>
             Projects
@@ -33,7 +42,7 @@ const Portfolio = () => {
       <Heading color="white" as="h1" size="2xl" mb={8}>
       Job Experience
       </Heading>
-      <Grid mb={300} templateColumns={["repeat(1, 1fr)","repeat(2, 1fr)"]}>
+      <Grid mb={300} templateColumns={["repeat(1, 1fr)","repeat(2, 1fr)", "repeat(3, 1fr)"]}>
       {data.jobExperiences && data.jobExperiences.sort((a,b) => +a.to - +b.to).map(exp  => (
                   <GridItem key={exp.id}>
                   <JobExperienceRender exp={exp}/>
