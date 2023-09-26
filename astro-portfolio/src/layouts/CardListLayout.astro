@@ -14,9 +14,7 @@ const { title, gap = 0 } = Astro.props;
 		<section class="mb-10 flex flex-col items-center justify-center pt-10">
 			<h2 class="font-monospace text-2xl text-secondary lg:text-4xl">{title}</h2>
 			<span class="mb-10 h-1 w-10 bg-secondary"></span>
-			<div
-				class=`mb-10 flex w-full flex-col flex-wrap items-center justify-center md:flex-row gap-${gap}`
-			>
+			<div class=`mb-10 flex w-full flex-col flex-wrap items-center justify-center md:flex-row gap-${gap}`>
 				<slot name="list" />
 			</div>
 			<slot name="under-list" />

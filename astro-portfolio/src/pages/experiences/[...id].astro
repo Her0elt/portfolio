@@ -3,32 +3,30 @@ import { fetchFromGraphQL, gql } from '@utils/index';
 import type { JobExperience } from 'types';
 import BackToTop from '@components/ui/BackToTop.astro';
 import Layout from '@layouts/Layout.astro';
-export async function getStaticPaths() {
-	const getWorkExperienceQuery = gql`
-		query {
-			jobExperiences {
-				id
-				from
-				to
-				title
-				company
-				description
-			}
+const getWorkExperienceQuery = gql`
+	query {
+		jobExperiences {
+			id
+			from
+			to
+			title
+			company
+			description
 		}
-	`;
+	}
+`;
 
-	const res = await fetchFromGraphQL<{ jobExperiences: Array<JobExperience> }>(
-		getWorkExperienceQuery
-	);
-	const experiences = res.data.jobExperiences;
-	return experiences.map((experience) => {
-		return {
-			params: { id: experience.id },
-			props: { experience },
-		};
+const res = await fetchFromGraphQL<{ jobExperiences: Array<JobExperience> }>(
+	getWorkExperienceQuery
+);
+const experiences = res.data.jobExperiences;
+const experience = experiences.find((experience) => experience.id === Astro.params.id);
+if (!experience) {
+	return new Response(null, {
+		status: 404,
+		statusText: 'Not found',
 	});
 }
-const { experience } = Astro.props;
 ---
 
 <Layout>
