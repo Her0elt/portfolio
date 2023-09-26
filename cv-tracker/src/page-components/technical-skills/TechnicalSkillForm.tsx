@@ -38,7 +38,7 @@ const TechnicalSkillForm = ({ skill, handleSubmit, onClose, open }: TechnicalSki
               className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:focus:border-blue-500 dark:focus:ring-blue-500'
               defaultValue={skill?.category}
               id='category'
-              name='skill'
+              name='category'
               required
               type='text'
             />
