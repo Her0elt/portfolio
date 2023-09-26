@@ -1,0 +1,49 @@
+---
+import { fetchFromGraphQL, gql } from '@utils/index';
+import type { JobExperience } from 'types';
+import BackToTop from '@components/ui/BackToTop.astro';
+import Layout from '@layouts/Layout.astro';
+export async function getStaticPaths() {
+	const getWorkExperienceQuery = gql`
+		query {
+			jobExperiences {
+				id
+				from
+				to
+				title
+				company
+				description
+			}
+		}
+	`;
+
+	const res = await fetchFromGraphQL<{ jobExperiences: Array<JobExperience> }>(
+		getWorkExperienceQuery
+	);
+	const experiences = res.data.jobExperiences;
+	return experiences.map((experience) => {
+		return {
+			params: { id: experience.id },
+			props: { experience },
+		};
+	});
+}
+const { experience } = Astro.props;
+---
+
+<Layout>
+	<section
+		class="mb-10 flex flex-col items-center justify-center gap-16 pt-16 text-secondary lg:mb-0 lg:h-[60vh] lg:pt-0"
+	>
+		<h2 class="font-monospace text-2xl lg:text-4xl" transition:name={experience.id}>
+			{experience.company} - {experience.title}
+		</h2>
+		<h3>{experience.from} - {experience.to}</h3>
+		<div class="w-full text-justify lg:w-1/2">
+			<p class="mb-2">
+				{experience.description}
+			</p>
+		</div>
+		<BackToTop />
+	</section>
+</Layout>

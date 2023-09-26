@@ -1,0 +1,28 @@
+---
+import BackToTop from '@components/ui/BackToTop.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout>
+	<main>
+		<section
+			data-testid="about"
+			id="about"
+			class="flex flex-col items-center justify-center lg:h-screen lg:flex-row"
+		>
+			<div class="mb-10 flex w-full flex-col items-center justify-center lg:mb-0 lg:w-1/2">
+				<h2 class="font-monospace text-2xl text-secondary lg:text-4xl">About me</h2>
+				<span class="mb-6 ml-2 h-1 w-10 bg-secondary"></span>
+			</div>
+
+			<div class="w-full text-justify text-secondary lg:w-1/2">
+				<p class="mb-2">
+					I'm a Norway-based software developer with a Master's degree in Computer Science from
+					NTNU. I like tackling complex challenges and staying updated on tech trends, and love
+					learning new stuff.
+				</p>
+			</div>
+		</section>
+		<BackToTop />
+	</main>
+</Layout>

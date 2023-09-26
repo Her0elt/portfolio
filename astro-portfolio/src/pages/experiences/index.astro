@@ -1,0 +1,40 @@
+---
+import { fetchFromGraphQL, gql } from '@utils/index';
+import type { JobExperience } from 'types';
+import Card from '@components/ui/Card.astro';
+import BackToTop from '@components/ui/BackToTop.astro';
+import CardListLayout from '@layouts/CardListLayout.astro';
+const getWorkExperienceQuery = gql`
+	query {
+		jobExperiences {
+			id
+			from
+			to
+			title
+			company
+			description
+		}
+	}
+`;
+
+const res = await fetchFromGraphQL<{ jobExperiences: Array<JobExperience> }>(
+	getWorkExperienceQuery
+);
+const experiences = res.data.jobExperiences;
+---
+
+<CardListLayout title="Work experience">
+	<Fragment slot="list">
+		{
+			experiences.map((experience) => (
+				<Card
+					transitionId={experience.id}
+					url={`/experiences/${experience.id}`}
+					title={experience.company}
+					description={`${experience.title}: ${experience.from} - ${experience.to}`}
+				/>
+			))
+		}
+	</Fragment>
+	<BackToTop />
+</CardListLayout>

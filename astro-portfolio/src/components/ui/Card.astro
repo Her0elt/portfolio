@@ -1,0 +1,29 @@
+---
+import Tags from '@components/ui/Tags.astro';
+interface Props {
+	transitionId?: string;
+	url: string;
+	title: string;
+	description?: string;
+	tags?: Array<string>;
+	children?: HTMLElement | HTMLElement[];
+}
+
+const { url = '#', title = 'Project title', description, tags, transitionId } = Astro.props;
+---
+
+<section class="w-full p-4 md:w-1/2 lg:w-1/2">
+	<article
+		data-testId="card"
+		class="rounded-xl bg-tertiary p-3 shadow-lg duration-100 hover:scale-105 hover:transform hover:shadow-xl"
+	>
+		<a href={url} aria-label="link to project">
+			<div class="relative flex items-end overflow-hidden rounded-xl"></div>
+			<div class="mt-1 p-2 text-secondary">
+				<h2 transition:name={transitionId} class="text-xl lg:text-2xl">{title}</h2>
+				<p>{description}</p>
+				<Tags tags={tags} />
+			</div>
+		</a>
+	</article>
+</section>

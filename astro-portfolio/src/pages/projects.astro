@@ -1,0 +1,64 @@
+---
+import Card from '@components/ui/Card.astro';
+import { fetchFromGraphQL, gql } from '@utils/index';
+import type { Repository } from 'types';
+import BackToTop from '@components/ui/BackToTop.astro';
+import CardListLayout from '@layouts/CardListLayout.astro';
+
+const getPageInfoQuery = gql`
+	query {
+		pinns {
+			name
+			url
+			description
+			languages {
+				nodes {
+					name
+				}
+			}
+		}
+	}
+`;
+
+const res = await fetchFromGraphQL<{ pinns: Array<Repository> }>(getPageInfoQuery);
+const projects = res.data.pinns;
+---
+
+<CardListLayout title="Projects">
+	<Fragment slot="list">
+		{
+			projects.map((project) => (
+				<Card
+					url={project.url}
+					title={project.name}
+					description={project.description}
+					tags={project.languages.nodes.map((language) => language.name)}
+				/>
+			))
+		}
+	</Fragment>
+	<a
+		slot="under-list"
+		href="https://github.com/her0elt"
+		target="_blank"
+		rel="noopener"
+		class="flex flex-row text-secondary hover:text-tertiary"
+		aria-label="link to repository"
+	>
+		View full projects archive
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="ml-1 h-6 w-6"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+		</svg>
+	</a>
+	<BackToTop />
+</CardListLayout>
