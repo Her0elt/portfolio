@@ -4,6 +4,7 @@ import type { JobExperience } from 'types';
 import Card from '@components/ui/Card.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 import CardListLayout from '@layouts/CardListLayout.astro';
+import { ViewTransitions } from 'astro:transitions';
 const getWorkExperienceQuery = gql`
 	query {
 		jobExperiences {

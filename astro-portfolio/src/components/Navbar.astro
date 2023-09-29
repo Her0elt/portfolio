@@ -1,5 +1,4 @@
 ---
-import Button from '@components/ui/Button.astro';
 import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
 
 const menuitems = [
@@ -27,10 +26,10 @@ const menuitems = [
 ---
 
 <header data-testId="header" class="my-5 flex flex-col items-center justify-center lg:flex-row">
-	<Astronav>
+	<Astronav closeOnClick>
 		<div class="flex w-full items-center justify-between lg:w-auto">
 			<div class="block lg:hidden">
-				<MenuIcon class="h-4 w-4 text-secondary" />
+				<MenuIcon class="h-6 w-6 text-secondary" />
 			</div>
 		</div>
 		<MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
@@ -42,7 +41,7 @@ const menuitems = [
 								<a
 									aria-label="navigation link"
 									href={item.path}
-									class="flex py-2 text-secondary hover:text-tertiary lg:px-3"
+									class="flex py-2 text-lg text-secondary hover:text-tertiary lg:px-3 lg:text-2xl"
 								>
 									{item.title}
 								</a>

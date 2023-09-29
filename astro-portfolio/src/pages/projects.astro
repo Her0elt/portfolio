@@ -1,7 +1,7 @@
 ---
 import Card from '@components/ui/Card.astro';
 import { fetchFromGraphQL, gql } from '@utils/index';
-import type { Repository } from 'types';
+import type { Language, Repository } from 'types';
 import BackToTop from '@components/ui/BackToTop.astro';
 import CardListLayout from '@layouts/CardListLayout.astro';
 
@@ -32,7 +32,7 @@ const projects = res.data.pinns;
 					url={project.url}
 					title={project.name}
 					description={project.description}
-					tags={project.languages.nodes.map((language) => language.name)}
+					tags={project.languages.nodes.map((language: Language) => language.name)}
 				/>
 			))
 		}
