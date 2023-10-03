@@ -136,7 +136,7 @@ function Resume({ educations, technicalSkills, jobExperiences }: ResumeProps) {
 						<Text style={styles.header}>Experience</Text>
 						<View style={{ borderBottom: 1, borderColor: '' }} />
 						{jobExperiences.map((exp) => (
-							<View style={{ ...styles.infoSection, ...{ gap: 5 } }}>
+							<View key={exp.id} style={{ ...styles.infoSection, ...{ gap: 5 } }}>
 								<Text>
 									{exp.from}-{exp.to}
 								</Text>
@@ -167,7 +167,7 @@ export default function ResumePdf({ educations, technicalSkills, jobExperiences 
 			>
 				{({ blob, url, loading, error }) =>
 					loading ? (
-						'Loading'
+						<h2 className="mb-10 font-monospace text-xl text-secondary lg:text-3xl">Loading</h2>
 					) : (
 						<div className="flex justify-center pb-5">
 							<button className="border-transparent rounded-xl border-2  bg-primary px-6 py-3 text-center text-secondary ring-secondary ring-offset-2 transition hover:bg-tertiary focus-visible:ring-2">

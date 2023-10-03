@@ -39,8 +39,8 @@ const jobExperiences = res.data.jobExperiences.filter((exp) => !exp.company.incl
 ---
 
 <Layout>
-	<section class="mb-10 flex h-screen w-full flex-col items-center justify-center pt-10">
-		<h1 class="text-black mb-10 font-monospace text-3xl lg:text-5xl">My resume</h1>
+	<section class="mb-10 flex lg:h-screen w-full flex-col items-start items-center lg:justify-center pt-10">
+		<h1 class="text-secondary mb-10 font-monospace text-3xl lg:text-5xl">My resume</h1>
 		<ResumePdf
 			client:only="react"
 			educations={educations}
