@@ -1,0 +1,51 @@
+---
+import ResumePdf from '@components/react/ResumePdf';
+import Layout from '@layouts/Layout.astro';
+import { fetchFromGraphQL, gql } from '@utils/index';
+import type { Education, JobExperience, TechnicalSkills } from 'types';
+const getPageInfoQuery = gql`
+	query {
+		educations {
+			id
+			from
+			to
+			title
+			school
+		}
+		technicalSkills {
+			id
+			skill
+			category
+		}
+		jobExperiences {
+			id
+			from
+			to
+			company
+			description
+			title
+		}
+	}
+`;
+
+const res = await fetchFromGraphQL<{
+	educations: Array<Education>;
+	technicalSkills: Array<TechnicalSkills>;
+	jobExperiences: Array<JobExperience>;
+}>(getPageInfoQuery);
+const educations = res.data.educations.sort((a, b) => Date.parse(b.to) - Date.parse(a.to));
+const technicalSkills = res.data.technicalSkills;
+const jobExperiences = res.data.jobExperiences.filter((exp) => !exp.company.includes('NTNU'));
+---
+
+<Layout>
+	<section class="mb-10 flex h-screen w-full flex-col items-center justify-center pt-10">
+		<h1 class="text-black mb-10 font-monospace text-3xl lg:text-5xl">My resume</h1>
+		<ResumePdf
+			client:only="react"
+			educations={educations}
+			technicalSkills={technicalSkills}
+			jobExperiences={jobExperiences}
+		/>
+	</section>
+</Layout>
