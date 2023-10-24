@@ -1,0 +1,36 @@
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/Card";
+import { api } from "~/trpc/server";
+
+export default async function JobExperiencePage() {
+  const data = await api.jobExperience.getAll.query();
+
+  return (
+    <div className="flex  flex-col gap-4">
+      <div className="flex  flex-row justify-between gap-4 pr-16">
+        <h1 className="text-2xl">Job experience</h1>
+        <Link className="text-2xl" href={"/admin/job-experience/new"}>
+          +
+        </Link>
+      </div>
+      <div className="flex flex-wrap gap-8">
+        {data.entries.map((exp) => (
+          <Link href={`/admin/job-experience/${exp.id}`} key={exp.id}>
+            <Card
+              className="flex flex-col gap-4 lg:min-w-[35%] lg:flex-1"
+              fixHeight
+            >
+              <CardHeader className="flex flex-col gap-2">
+                <CardTitle>{exp.title}</CardTitle>
+                {exp.company}: {exp.from} - {exp.to}
+              </CardHeader>
+              <CardContent>
+                <p>{exp.description}</p>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
