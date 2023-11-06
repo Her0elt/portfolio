@@ -21,16 +21,6 @@ export default function EducationForm({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, startTransition] = useTransition();
 
-  function parseDate(date?: string) {
-    if (!date) {
-      return "";
-    }
-    try {
-      return format(parse(date, "MMMM yyyy", new Date()), "yyyy-MM");
-    } catch (e) {
-      return "";
-    }
-  }
   const deleteEducation = api.education.delete.useMutation({
     onSuccess: () => {
       startTransition(() => router.push("/admin/education"));
@@ -76,14 +66,18 @@ export default function EducationForm({
             label="From"
             name="from"
             required
-            type="month"
-            defaultValue={parseDate(education?.from)}
+            type="number"
+            min={2000}
+            max={2100}
+            defaultValue={education?.from}
           />
           <InputField
             label="To"
             name="to"
-            type="month"
-            defaultValue={parseDate(education?.to)}
+            type="number"
+            min={2000}
+            max={2100}
+            defaultValue={education?.to}
             required
           />
         </div>
