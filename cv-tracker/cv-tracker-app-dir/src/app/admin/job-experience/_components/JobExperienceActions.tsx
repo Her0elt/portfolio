@@ -8,6 +8,7 @@ import {
 } from "~/server/api/routers/job-experience";
 import { createAction } from "~/server/api/action";
 import { api } from "~/trpc/server";
+import { redirect } from "next/navigation";
 
 export const createJobExperienceAction = createAction(
   protectedProcedure
@@ -41,5 +42,6 @@ export const updateJobExperienceAction = createAction(
       );
       await api.jobExperience.getAll.revalidate();
       await api.jobExperience.getById.revalidate({ id: input.id });
+      redirect("/admin/job-experience");
     }),
 );

@@ -87,7 +87,7 @@ export default function EducationForm({
             required
           />
         </div>
-        <div className="flex justify-center">
+        <div className="flex items-center">
           <Button type="submit">Submit</Button>
         </div>
       </form>

@@ -32,10 +32,7 @@ export async function newEducationAction(formData: FormData) {
   redirect("/admin/job-experience");
 }
 
-export async function updateEducationAction(
-  id: string,
-  formData: FormData,
-) {
+export async function updateEducationAction(id: string, formData: FormData) {
   const json = Object.fromEntries(formData);
   const res = EducationMutateSchema.safeParse(json);
   if (!res.success) {
