@@ -5,6 +5,7 @@ import { db } from "../db";
 import { experimental_createServerActionHandler } from "@trpc/next/app-dir/server";
 
 import { createSafeActionClient } from "next-safe-action";
+import { auth } from "@clerk/nextjs";
 
 export const action = createSafeActionClient();
 
@@ -13,6 +14,7 @@ export const createAction = experimental_createServerActionHandler(t, {
     return {
       headers: headers(),
       db,
+      auth: auth(),
     };
   },
 });

@@ -11,6 +11,7 @@ import {
   experimental_createActionHook,
   experimental_serverActionLink,
 } from "@trpc/next/app-dir/client";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const useAction = experimental_createActionHook({
   links: [loggerLink(), experimental_serverActionLink()],
@@ -47,10 +48,12 @@ export function TRPCReactProvider(props: {
   );
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <api.Provider client={trpcClient} queryClient={queryClient}>
-        {props.children}
-      </api.Provider>
-    </QueryClientProvider>
+    <ClerkProvider>
+      <QueryClientProvider client={queryClient}>
+        <api.Provider client={trpcClient} queryClient={queryClient}>
+          {props.children}
+        </api.Provider>
+      </QueryClientProvider>
+    </ClerkProvider>
   );
 }

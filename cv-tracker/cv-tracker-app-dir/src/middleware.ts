@@ -1,19 +1,10 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { authMiddleware } from "@clerk/nextjs";
 
-export function middleware(request: NextRequest) {
-  const password = request.cookies.get("password");
-  const authPass = process.env.PASSWORD;
-  if (authPass === "") {
-    return NextResponse.redirect(new URL("/", request.url));
-  }
-
-  if (password && authPass && password.value === authPass) {
-    return;
-  }
-  return NextResponse.redirect(new URL("/", request.url));
-}
+// This example protects all routes including api/trpc routes
+// Please edit this to allow other routes to be public as needed.
+// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
+export default authMiddleware({});
 
 export const config = {
-  matcher: "/admin/:path*",
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

@@ -10,6 +10,11 @@ import { TRPCError, initTRPC } from "@trpc/server";
 import { type NextRequest } from "next/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import {
+  getAuth,
+  SignedInAuthObject,
+  SignedOutAuthObject,
+} from "@clerk/nextjs/server";
 
 import { db } from "~/server/db";
 
@@ -23,6 +28,7 @@ import { db } from "~/server/db";
 
 interface CreateContextOptions {
   headers: Headers;
+  auth: SignedInAuthObject | SignedOutAuthObject;
 }
 
 /**
@@ -38,6 +44,7 @@ interface CreateContextOptions {
 export const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     headers: opts.headers,
+    auth: opts.auth,
     db,
   };
 };
@@ -52,6 +59,7 @@ export const createTRPCContext = (opts: { req: NextRequest }) => {
   // Fetch stuff that depends on the request
   //
   return createInnerTRPCContext({
+    auth: getAuth(opts.req),
     headers: opts.req.headers,
   });
 };
@@ -101,32 +109,15 @@ export const createTRPCRouter = t.router;
  */
 export const publicProcedure = t.procedure;
 
-const enforceCorrectPassword = t.middleware(({ ctx, next }) => {
-  const cookiesHeader = ctx.headers.get("cookie");
-  if (!cookiesHeader) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
-  const cookies = cookiesHeader.split(";");
-  if (!cookies) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
-  const passwordCookie = cookies.find((cookie) => cookie.includes("password"));
-  if (!passwordCookie) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
-
-  const password = passwordCookie.split("=")[1];
-
-  const authPass = process.env.PASSWORD;
-
-  if (!password || !authPass || password !== authPass) {
+const isAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.auth.userId) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
   return next({
     ctx: {
-      // infers the `session` as non-nullable
+      auth: ctx.auth,
     },
   });
 });
 
-export const protectedProcedure = t.procedure.use(enforceCorrectPassword);
+export const protectedProcedure = t.procedure.use(isAuthed);
