@@ -46,6 +46,7 @@ export default function Projects() {
   if (!result.data?.pinns) {
     return null;
   }
+  console.log(result.data.pinns);
 
   return (
     <main className="flex items-center mt-28 flex-col gap-20 md:p-10 p-4">

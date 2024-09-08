@@ -39,6 +39,7 @@ export default function Skills() {
       ),
     [result]
   );
+  console.log(skillGroups);
   return (
     <main className="flex flex-col gap-8 md:items-center items-start justify-center p-4">
       <Text variant="h1" size="title" className="md:mt-16 mt-4">
