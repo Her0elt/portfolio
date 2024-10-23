@@ -23,7 +23,7 @@ export default c.define("/src/content/info.val.ts", schema, {
       title: "Software engineer",
       content: [
         {
-          text: "I am a skilled developer with a strong curiosity and passion for            technology. I hold a degree in computer engineering, specializing in            databases and search technology from NTNU. Throughout my studies,            I’ve taken on relevant roles and part-time jobs, allowing me to            build solid expertise in modern web development and teamwork!!!",
+          text: "I am a skilled developer with a strong curiosity and passion for            technology. I hold a degree in computer engineering, specializing in            databases and search technology from NTNU. Throughout my studies,            I’ve taken on relevant roles and part-time jobs, allowing me to            build solid expertise in modern web development and teamwork.",
         },
         {
           text: `I enjoy challenges and love solving problems. I'm always eager
