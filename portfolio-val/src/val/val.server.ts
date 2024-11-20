@@ -9,7 +9,7 @@ const { valNextAppRouter } = initValServer(
   { ...config },
   {
     draftMode,
-  }
+  },
 );
 
 export { valNextAppRouter };

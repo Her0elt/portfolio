@@ -40,9 +40,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${blankFont.variable} dark`}>
-        <Navbar />
-
-        <ValProvider config={config}>{children}</ValProvider>
+        <ValProvider config={config}>
+          <Navbar />
+          {children}
+        </ValProvider>
       </body>
     </html>
   );

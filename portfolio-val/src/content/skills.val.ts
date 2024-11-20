@@ -16,7 +16,7 @@ export type Skills = t.inferSchema<typeof schema>;
 
 export default c.define("/src/content/skills.val.ts", schema, [
   {
-    group: "frontend",
+    group: "Frontend",
     skills: [
       {
         name: "React",
@@ -49,7 +49,7 @@ export default c.define("/src/content/skills.val.ts", schema, [
     ],
   },
   {
-    group: "backend",
+    group: "Backend",
     skills: [
       {
         name: "Rust",
@@ -102,7 +102,7 @@ export default c.define("/src/content/skills.val.ts", schema, [
     ],
   },
   {
-    group: "devops",
+    group: "Devops",
     skills: [
       {
         name: "GCP",
