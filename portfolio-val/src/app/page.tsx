@@ -6,6 +6,7 @@ import infoContent from "@/content/info.val";
 
 import Link from "next/link";
 import { Fragment } from "react";
+import { ValRichText } from "@valbuild/next";
 
 export default function Index() {
   const info = useVal(infoContent);
@@ -30,9 +31,7 @@ export default function Index() {
           <div className="flex gap-4 flex-col lg:ml-80 md:ml-60 ml-0 md:w-[55%] p-8 md:p-0">
             {sec.content.map((cont, i) => (
               <BoxReveal key={i}>
-                <Text className="text-start" variant="p" size="default">
-                  {cont.text}
-                </Text>
+                <ValRichText>{cont.text}</ValRichText>
               </BoxReveal>
             ))}
           </div>
