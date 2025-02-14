@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "./card";
+import { RichText, ValRichText } from "@valbuild/next";
 
 export const InfiniteMovingCards = ({
   items,
@@ -12,7 +13,8 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    content: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    content: RichText<any>;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -94,7 +96,9 @@ export const InfiniteMovingCards = ({
             }}
             key={idx}
           >
-            <CardContent>{item.content}</CardContent>
+            <CardContent>
+              <ValRichText>{item.content}</ValRichText>
+            </CardContent>
           </Card>
         ))}
       </div>

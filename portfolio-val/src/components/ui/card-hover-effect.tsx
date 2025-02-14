@@ -4,61 +4,68 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Text } from "./text";
 import Link from "next/link";
+import { RichText, ValEncodedString, ValRichText } from "@valbuild/next";
 
 export const HoverEffect = ({
   items,
   className,
 }: {
   items: {
-    title: string;
-    description: string;
-    link: string;
+    title: ValEncodedString;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    content: RichText<any>;
+    link: ValEncodedString | null;
   }[];
   className?: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div
+    <section
       className={cn(
         "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
         className,
       )}
     >
-      {items.map((item, idx) => (
-        <Link
-          href={item.link}
-          key={item.link}
-          target="_blank"
-          className="relative group  block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
-          rel="noreferrer"
-        >
-          <AnimatePresence>
-            {hoveredIndex === idx && (
-              <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-foreground block  rounded-3xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
-              />
-            )}
-          </AnimatePresence>
-          <HoverCard>
-            <HoverCardTitle>{item.title}</HoverCardTitle>
-            <HoverCardDescription>{item.description}</HoverCardDescription>
-          </HoverCard>
-        </Link>
-      ))}
-    </div>
+      {items.map((item, idx) => {
+        const Comp = item.link ? Link : "div";
+        return (
+          <Comp
+            href={item?.link ?? "#"}
+            key={idx}
+            target="_blank"
+            className="relative group  block p-2 h-full w-full"
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            rel="noreferrer"
+          >
+            <AnimatePresence>
+              {hoveredIndex === idx && (
+                <motion.span
+                  className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-foreground block  rounded-3xl"
+                  layoutId="hoverBackground"
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    transition: { duration: 0.15 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    transition: { duration: 0.15, delay: 0.2 },
+                  }}
+                />
+              )}
+            </AnimatePresence>
+            <HoverCard>
+              <HoverCardTitle>{item.title}</HoverCardTitle>
+              <HoverCardDescription>
+                <ValRichText>{item.content}</ValRichText>
+              </HoverCardDescription>
+            </HoverCard>
+          </Comp>
+        );
+      })}
+    </section>
   );
 };
 

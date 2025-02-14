@@ -1,17 +1,12 @@
-"use client";
-import { Text } from "@/components/ui/text";
 import { Timeline } from "@/components/ui/timeline";
-
-import { useVal } from "@/val/val.client";
-import workExperienceVal, {
-  WorkExperiences,
-} from "@/content/work-experience.val";
+import { Text } from "@/components/ui/text";
+import { type WorkTimelineSection } from "@/content/schema/workTimelineSection.val";
 import { format } from "date-fns";
 
 function TimelineContent({
   experience,
 }: {
-  experience: WorkExperiences[number];
+  experience: WorkTimelineSection["timeline"][number];
 }) {
   return (
     <div className="flex flex-col gap-8">
@@ -24,16 +19,19 @@ function TimelineContent({
   );
 }
 
-export default function WorkExperience() {
-  const experiences = useVal(workExperienceVal);
+export default function WorkTimelineSection({
+  data,
+}: {
+  data: WorkTimelineSection;
+}) {
   const timelineData =
-    experiences.map((entry) => ({
+    data.timeline.map((entry) => ({
       title: `${entry.title} - ${entry.company}`,
       content: <TimelineContent experience={entry} />,
     })) ?? [];
   return (
     <div className="w-full lg:pb-80 p-0">
-      <Timeline title="My work experience" data={timelineData} />
+      <Timeline title={data.title} data={timelineData} />
     </div>
   );
 }
