@@ -14,7 +14,10 @@ export default function InfoSection({ data }: { data: InfoSection }) {
         </BoxReveal>
       )}
       {data.sections.map((sec) => (
-        <div key={sec.title} className="flex flex-col items-center gap-8 mx-44">
+        <div
+          key={sec.title}
+          className="flex flex-col items-center gap-8 lg:mx-44 mx-4"
+        >
           <BoxReveal>
             <Text className="text-start" variant="h2" size="heading">
               {sec.title}
