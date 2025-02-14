@@ -8,13 +8,13 @@ import { useVal } from "@/val/val.client";
 export default function Skills() {
   const skills = useVal(skillsVal);
   return (
-    <main className="flex flex-col gap-8 md:items-center items-start justify-center p-4">
+    <main className="flex flex-col gap-10 md:items-center items-start justify-center p-4">
       <Text variant="h1" size="title" className="md:mt-16 mt-4">
         Skills
       </Text>
       {skills.map((data, i) => (
         <BoxReveal key={data.group}>
-          <Text variant="h1" size="title" className="capitalize">
+          <Text variant="h1" size="title" className="capitalize mb-4">
             {data.group}
           </Text>
           <InfiniteMovingCards
