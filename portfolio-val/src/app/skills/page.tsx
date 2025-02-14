@@ -14,16 +14,14 @@ export default function Skills() {
       </Text>
       {skills.map((data, i) => (
         <BoxReveal key={data.group}>
-          <div>
-            <Text variant="h1" size="title" className="capitalize">
-              {data.group}
-            </Text>
-            <InfiniteMovingCards
-              items={data.skills.map((skill) => ({ content: skill.name }))}
-              direction={i % 2 === 0 ? "right" : "left"}
-              speed="slow"
-            />
-          </div>
+          <Text variant="h1" size="title" className="capitalize">
+            {data.group}
+          </Text>
+          <InfiniteMovingCards
+            items={data.skills.map((skill) => ({ content: skill.name }))}
+            direction={i % 2 === 0 ? "right" : "left"}
+            speed="slow"
+          />
         </BoxReveal>
       ))}
     </main>

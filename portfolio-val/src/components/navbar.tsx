@@ -32,7 +32,7 @@ export function Navbar() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/work-experience"
-                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-[active]:underline dark:hover:underline  dark:focus:underline dark:data-[active]:underline dark:data-[state=open]:underline dark:bg-background bg-background"
+                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-active:underline dark:hover:underline  dark:focus:underline dark:data-active:underline dark:data-[state=open]:underline dark:bg-background bg-background"
                 >
                   Work experiences
                 </Link>
@@ -40,7 +40,7 @@ export function Navbar() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/projects"
-                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-[active]:underline dark:hover:underline  dark:focus:underline dark:data-[active]:underline dark:data-[state=open]:underline dark:bg-background bg-background"
+                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-active:underline dark:hover:underline  dark:focus:underline dark:data-active:underline dark:data-[state=open]:underline dark:bg-background bg-background"
                 >
                   Projects
                 </Link>
@@ -48,7 +48,7 @@ export function Navbar() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/skills"
-                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-[active]:underline dark:hover:underline  dark:focus:underline dark:data-[active]:underline dark:data-[state=open]:underline dark:bg-background bg-background"
+                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-active:underline dark:hover:underline  dark:focus:underline dark:data-active:underline dark:data-[state=open]:underline dark:bg-background bg-background"
                 >
                   Skills
                 </Link>
@@ -57,7 +57,7 @@ export function Navbar() {
               <NavigationMenuLink asChild>
                 <Link
                   to={$path("/education")}
-                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-[active]:underline dark:hover:underline  dark:focus:underline dark:data-[active]:underline dark:data-[state=open]:underline dark:bg-background bg-background"
+                  className="group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:underline focus:underline disableCd:pointer-events-none disabled:opacity-50 data-active:underline dark:hover:underline  dark:focus:underline dark:data-active:underline dark:data-[state=open]:underline dark:bg-background bg-background"
                 >
                   Education
                 </Link>
