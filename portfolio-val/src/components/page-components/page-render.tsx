@@ -12,7 +12,7 @@ export default function PageRender({
   data: Pages[number]["pageElements"];
 }) {
   return (
-    <div className="flex flex-col gap-10 md:items-center items-start justify-center p-4">
+    <>
       {data.map((element, i) => {
         switch (element.type) {
           case "infoCards":
@@ -29,6 +29,6 @@ export default function PageRender({
             return <CardCarouselSection data={element} key={i} />;
         }
       })}
-    </div>
+    </>
   );
 }

@@ -6,16 +6,6 @@ import { notFound } from "next/navigation";
 
 import PageRender from "@/components/page-components/page-render";
 
-export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
-
-  const pages = await fetchVal(pagesVal);
-  const paths = pages.map((page) => ({
-    params: { path: page.path.split("/") },
-  }));
-  return { paths, fallback: false };
-}
-
 export default async function Page({
   params,
 }: {

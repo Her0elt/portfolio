@@ -34,6 +34,7 @@ export default c.define("/src/content/pages.val.ts", schema, [
       {
         type: "info",
         title: null,
+        float: "right",
         sections: [
           {
             title: "Software engineer",
@@ -66,10 +67,12 @@ export default c.define("/src/content/pages.val.ts", schema, [
         type: "work",
         company: "Blank AS",
         link: "https://www.blank.no",
+        float: "left",
       },
       {
         type: "social",
         title: "Links:",
+        float: "none",
         socials: [
           {
             name: "Github",

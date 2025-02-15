@@ -3,6 +3,7 @@ import { s, t } from "../../../val.config";
 export const infoSectionSchema = s.object({
   type: s.literal("info"),
   title: s.string().nullable(),
+  float: s.union(s.literal("left"), s.literal("right"), s.literal("none")),
   sections: s.array(
     s.object({
       title: s.string().nullable(),
