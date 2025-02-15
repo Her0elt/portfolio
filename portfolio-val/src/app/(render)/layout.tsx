@@ -1,12 +1,12 @@
 import { ValProvider } from "@valbuild/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "./../globals.css";
 import { Navbar } from "@/components/navbar";
-import { config } from "../../val.config";
+import { config } from "../../../val.config";
 
 const blankFont = localFont({
-  src: "./fonts/BlankVF/BlankVF.ttf",
+  src: "./../fonts/BlankVF/BlankVF.ttf",
   variable: "--font-blank",
 });
 
