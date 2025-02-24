@@ -25,7 +25,7 @@ export const schema = s.record(
 
 export type Pages = t.inferSchema<typeof schema>;
 
-export default c.define("/src/content/page.val.ts", schema, {
+export default c.define("/src/content/pages.val.ts", schema, {
   "/": {
     title: "Hermann Elton",
     pageElements: [
