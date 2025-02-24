@@ -1,7 +1,6 @@
 import { fetchVal } from "@/val/val.rsc";
 import { Text } from "@/components/ui/text";
 import pagesVal from "@/content/pages.val";
-import { getPage } from "@/lib/utils";
 import { notFound } from "next/navigation";
 
 import PageRender from "@/components/page-components/page-render";
@@ -15,7 +14,8 @@ export default async function Page({
   const path = paramsData.path;
   const actualFullPathString = path ? `/${path.join("/")}` : "/";
   const pages = await fetchVal(pagesVal);
-  const page = getPage(pages, actualFullPathString);
+
+  const page = pages[actualFullPathString];
   if (!page) return notFound();
 
   return (

@@ -6,9 +6,8 @@ import { workTimelineSectionSchema } from "@/content/schema/workTimelineSection.
 import { infoSectionSchema } from "@/content/schema/infoSection.val";
 import { socialSectionSchema } from "@/content/schema/socialSection.val";
 
-export const schema = s.array(
+export const schema = s.record(
   s.object({
-    path: s.string(),
     title: s.string().nullable(),
     pageElements: s.array(
       s.union(
@@ -26,9 +25,8 @@ export const schema = s.array(
 
 export type Pages = t.inferSchema<typeof schema>;
 
-export default c.define("/src/content/pages.val.ts", schema, [
-  {
-    path: "/",
+export default c.define("/src/content/page.val.ts", schema, {
+  "/": {
     title: "Hermann Elton",
     pageElements: [
       {
@@ -86,8 +84,7 @@ export default c.define("/src/content/pages.val.ts", schema, [
       },
     ],
   },
-  {
-    path: "/work-experience",
+  "/work-experience": {
     title: null,
     pageElements: [
       {
@@ -170,8 +167,7 @@ export default c.define("/src/content/pages.val.ts", schema, [
       },
     ],
   },
-  {
-    path: "/projects",
+  "/projects": {
     title: "Projects",
     pageElements: [
       {
@@ -245,8 +241,7 @@ export default c.define("/src/content/pages.val.ts", schema, [
       },
     ],
   },
-  {
-    path: "/skills",
+  "/skills": {
     title: "Skills",
     pageElements: [
       {
@@ -464,4 +459,4 @@ export default c.define("/src/content/pages.val.ts", schema, [
       },
     ],
   },
-]);
+});
